@@ -36,7 +36,7 @@ class TXWeiboFeed(BaseFeed):
     PARSER_CLASS = TXWeiboParser
 
     def set_feed_metadata(self, fg):
-        pass
+        fg.language('zh-cn')
 
     def translate_timestamp(self, ts):
         return TZ_CST.localize(datetime.datetime.fromtimestamp(ts))
