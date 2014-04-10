@@ -4,6 +4,7 @@
 /feed/:
 	^(?P<source_type>[0-9a-z.]+)/(?P<source_id>[^/]+)/:
 		^rss/$ feed-rss passthru
+		^atom/$ feed-atom passthru
 
 "" http-404 passthru
 

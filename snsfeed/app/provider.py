@@ -31,14 +31,23 @@ class ProviderNotSupportedError(Exception):
     pass
 
 
-def generate_rss(source_type, source_id):
+def _get_feed_generator(source_type, source_id):
     try:
         feed = PROVIDER_MAP[source_type](source_id)
     except KeyError:
         raise ProviderNotSupportedError
 
-    fg = feed.generate_feed()
+    return feed.generate_feed()
+
+
+def generate_rss(source_type, source_id):
+    fg = _get_feed_generator(source_type, source_id)
     return fg.rss_str()
+
+
+def generate_atom(source_type, source_id):
+    fg = _get_feed_generator(source_type, source_id)
+    return fg.atom_str()
 
 
 # vim:set ai et ts=4 sw=4 sts=4 fenc=utf-8:

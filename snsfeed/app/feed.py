@@ -38,8 +38,22 @@ def feed_rss_view(request, source_type, source_id):
     except provider.ProviderNotSupportedError:
         return misc.get_404_response()
 
-    return 200, rss_str, {'mimetype': 'application/xml', }
+    return 200, rss_str, {'mimetype': 'application/rss+xml', }
 
+
+@http
+@renderable('passthru')
+@view
+def feed_atom_view(request, source_type, source_id):
+    source_type = source_type.decode('utf-8')
+    source_id = source_id.decode('utf-8')
+
+    try:
+        atom_str = provider.generate_atom(source_type, source_id)
+    except provider.ProviderNotSupportedError:
+        return misc.get_404_response()
+
+    return 200, atom_str, {'mimetype': 'application/atom+xml', }
 
 
 # vim:set ai et ts=4 sw=4 sts=4 fenc=utf-8:
