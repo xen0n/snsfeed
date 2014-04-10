@@ -99,6 +99,7 @@ class BaseFeed(object):
             fe.title(item['title'])
             fe.content(item['content'])
             fe.published(self.translate_timestamp(item['time']))
+            fe.link(href=item['link'], rel='alternate')
 
         return fg
 
