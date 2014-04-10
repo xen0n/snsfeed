@@ -44,7 +44,7 @@ def _parse_item(elem):
     url = this_link.attr('href')
 
     return {
-            'title': content or '无内容',
+            'title': content,
             'content': all_content,
             'time': timestamp,
             'link': url,

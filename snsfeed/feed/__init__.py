@@ -96,8 +96,8 @@ class BaseFeed(object):
 
             # 设置条目信息
             fe.id(item['link'])
-            fe.title(item['title'])
-            fe.content(item['content'])
+            fe.title(item['title'] or '无内容')
+            fe.content(item['content'] or '无内容')
             fe.published(self.translate_timestamp(item['time']))
             fe.link(href=item['link'], rel='alternate')
 
