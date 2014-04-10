@@ -80,7 +80,7 @@ class BaseFeed(object):
         fg.id(metadata['url'])
         fg.title(metadata['name'])
         fg.link(href=metadata['url'], rel='alternate')
-        fg.description(metadata['desc'])
+        fg.description(metadata['desc'] or '暂无简介')
 
         try:
             fg.logo(metadata['logo'])
