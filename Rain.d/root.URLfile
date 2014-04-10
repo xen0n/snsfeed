@@ -1,0 +1,11 @@
+--exact
+--default-type=regex
+
+/feed/:
+	^(?P<source_type>[0-9a-z.]+)/(?P<source_id>[^/]+)/:
+		^rss/$ feed-rss passthru
+
+"" http-404 passthru
+
+
+# vim:set ai et ts=4 sw=4 sts=4 fenc=utf-8 syn=weiyu-urls:
