@@ -1,0 +1,6 @@
+git+https://github.com/xen0n/weiyu.git#egg=weiyu
+six>=1.5.2
+feedgen>=0.2.8
+pyquery>=1.2.8
+requests>=2.2.1
+pytz
