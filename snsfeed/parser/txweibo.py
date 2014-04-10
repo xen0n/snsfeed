@@ -76,7 +76,7 @@ class TXWeiboParser(BaseParser):
                 }
 
     def parse_timeline(self):
-        item_list = self._pq('#talkList > li')
+        item_list = self._pq('#talkList > li[id]')
         return [_parse_item(elem) for elem in item_list]
 
 
