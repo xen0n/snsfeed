@@ -4,3 +4,4 @@ feedgen>=0.2.8
 pyquery>=1.2.8
 requests>=2.2.1
 pytz
+raven
