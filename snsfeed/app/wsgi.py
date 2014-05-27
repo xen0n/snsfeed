@@ -37,12 +37,11 @@ init.inject_app()
 
 
 # Sentry init
-sentry_config = os.environ.get('SENTRY_CONFIG', None)
-if sentry_config is not None:
+if 'SENTRY_DSN' in os.environ:
     from raven import Client
     from raven.middleware import Sentry
 
-    sentry_client = Client(sentry_config)
+    sentry_client = Client()
     application = Sentry(application, client=sentry_client)
 
 
